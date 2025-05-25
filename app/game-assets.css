@@ -1,0 +1,433 @@
+/* Fish Sprites */
+.game-assets-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fish-sprite {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fish-swim 15s linear infinite;
+  transition: transform 0.3s ease-out;
+}
+
+.fish-sprite:hover {
+  transform: translate(50px, -50px) scale(0.8);
+}
+
+.fish-0 {
+  background-image: url('/images/fish/legend.png');
+}
+
+.fish-1 {
+  background-image: url('/images/fish/crimsonfish.png');
+}
+
+.fish-2 {
+  background-image: url('/images/fish/angler.png');
+}
+
+.fish-3 {
+  background-image: url('/images/fish/glacierfish.png');
+}
+
+.fish-4 {
+  background-image: url('/images/fish/mutant-carp.png');
+}
+
+@keyframes fish-swim {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(0) scale(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0) translateY(-30px) scale(1);
+  }
+  45% {
+    transform: translateX(200px) translateY(30px) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(400px) translateY(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(500px) translateY(0) scale(0.8);
+  }
+}
+
+/* Bubbles */
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubble-float 8s linear infinite;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+
+@keyframes bubble-float {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(80vh) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(20vh) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+}
+
+/* Seaweed */
+.seaweed {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 80px;
+  background: linear-gradient(to bottom, #2ecc71, #27ae60);
+  transform-origin: bottom center;
+  animation: seaweed-sway 4s ease-in-out infinite;
+  pointer-events: auto;
+  transition: transform 0.3s ease-out;
+}
+
+.seaweed:hover {
+  transform: translateX(30px) scale(0.8);
+}
+
+.seaweed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 10px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes seaweed-sway {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Water Effects */
+.water-ripple {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple-expand 4s linear infinite;
+}
+
+@keyframes ripple-expand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+/* Junimo Sprites */
+.junimo {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: junimo-appear 20s linear infinite;
+}
+
+.junimo-0 {
+  background-color: #ff5252; /* Red junimo */
+  clip-path: circle(40% at 50% 50%);
+}
+
+.junimo-1 {
+  background-color: #4caf50; /* Green junimo */
+  clip-path: circle(40% at 50% 50%);
+}
+
+.junimo-2 {
+  background-color: #2196f3; /* Blue junimo */
+  clip-path: circle(40% at 50% 50%);
+}
+
+.junimo-3 {
+  background-color: #ffeb3b; /* Yellow junimo */
+  clip-path: circle(40% at 50% 50%);
+}
+
+.junimo-4 {
+  background-color: #9c27b0; /* Purple junimo */
+  clip-path: circle(40% at 50% 50%);
+}
+
+.junimo::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.junimo::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 4px;
+  width: 16px;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+@keyframes junimo-appear {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+  }
+  5%,
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  20%,
+  30% {
+    opacity: 1;
+    transform: translateX(30px) translateY(-20px) scale(1);
+  }
+  35%,
+  45% {
+    opacity: 1;
+    transform: translateX(60px) translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(80px) translateY(20px) scale(0);
+  }
+}
+
+/* Crops */
+.crops-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 1;
+}
+
+.crop {
+  position: absolute;
+  bottom: 0;
+  width: 24px;
+  height: 0;
+  background-color: #4caf50;
+  transform-origin: bottom center;
+  animation: crop-grow 30s linear infinite;
+}
+
+.crop::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 4px;
+  width: 16px;
+  height: 8px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: crop-fruit 30s linear infinite;
+}
+
+.crop-0::before {
+  background-color: #ff5252; /* Red fruit/flower */
+  border-radius: 50%;
+}
+
+.crop-1::before {
+  background-color: #ffeb3b; /* Yellow fruit/flower */
+  border-radius: 4px;
+}
+
+.crop-2::before {
+  background-color: #2196f3; /* Blue fruit/flower */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+@keyframes crop-grow {
+  0% {
+    height: 0;
+  }
+  10% {
+    height: 10px;
+  }
+  20% {
+    height: 20px;
+  }
+  30%,
+  90% {
+    height: 30px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes crop-fruit {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  30%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Seasonal Decorations */
+.seasonal-decoration {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+}
+
+.sun-moon {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 235, 59, 0.6);
+}
+
+.night .sun-moon {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cloud {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: cloud-move linear infinite;
+}
+
+.cloud-1 {
+  top: 30px;
+  left: -100px;
+  width: 60px;
+  height: 20px;
+  animation-duration: 60s;
+}
+
+.cloud-2 {
+  top: 50px;
+  left: -150px;
+  width: 80px;
+  height: 25px;
+  animation-duration: 80s;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 30px;
+  height: 30px;
+  top: -15px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: 30px;
+}
+
+.night .cloud,
+.night .cloud::before,
+.night .cloud::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes cloud-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}

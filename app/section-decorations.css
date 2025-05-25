@@ -1,0 +1,94 @@
+/* Section-specific decorations with high z-index */
+.section-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 150;
+}
+
+/* Character section decorations */
+.character-decoration {
+  width: 16px;
+  height: 16px;
+  background-color: var(--stardew-purple);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: float-decoration 5s infinite ease-in-out;
+}
+
+/* Marriage section decorations */
+.heart-decoration {
+  width: 16px;
+  height: 16px;
+  background-color: var(--stardew-red);
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 150;
+}
+
+.heart-decoration::before,
+.heart-decoration::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--stardew-red);
+  border-radius: 50%;
+}
+
+.heart-decoration::before {
+  top: -8px;
+  left: 0;
+}
+
+.heart-decoration::after {
+  top: 0;
+  left: -8px;
+}
+
+/* Location section decorations */
+.location-decoration {
+  width: 20px;
+  height: 20px;
+  background-color: var(--stardew-green);
+  border-radius: 4px;
+  transform: rotate(45deg);
+  animation: pulse-decoration 4s infinite ease-in-out;
+}
+
+/* Calendar section decorations */
+.calendar-decoration {
+  width: 20px;
+  height: 20px;
+  background-color: var(--stardew-yellow);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: rotate-decoration 10s infinite linear;
+}
+
+/* Animation keyframes */
+@keyframes float-decoration {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-decoration {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.2);
+  }
+}
+
+@keyframes rotate-decoration {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

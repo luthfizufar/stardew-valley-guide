@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./simple-animations.css";
+@import "./seasonal-animations.css";
+@import "./section-decorations.css";
+@import "./dynamic-animations.css"; /* Added import for dynamic animations */
+
+:root {
+  --stardew-bg: #fff2c8;
+  --stardew-green: #283618;
+  --stardew-brown: #cc7638;
+  --stardew-blue: #4682b4;
+  --stardew-yellow: #f8d078;
+  --stardew-red: #cd5c5c;
+  --stardew-purple: #9370db;
+  --stardew-orange: #e67e22;
+  --stardew-teal: #1abc9c;
+}
+
+body {
+  background-color: var(--stardew-bg);
+  color: #333;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.bg-stardew-bg {
+  background-color: var(--stardew-bg);
+}
+
+.text-stardew-green {
+  color: var(--stardew-green);
+}
+
+.font-pixel {
+  font-family: "Press Start 2P", cursive;
+  letter-spacing: -0.5px;
+}
+
+.pixel-border {
+  box-shadow: -4px 0 0 0 #000, 4px 0 0 0 #000, 0 -4px 0 0 #000, 0 4px 0 0 #000;
+  image-rendering: pixelated;
+}
+
+.pixel-button {
+  position: relative;
+  display: inline-block;
+  background-color: #f8d878;
+  color: #5c3e14;
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  padding: 8px 16px;
+  margin: 4px;
+  border: none;
+  box-shadow: inset -4px -4px 0 0 #a88c3d, 4px 4px 0 0 #000;
+  transition: all 0.1s;
+  z-index: 20;
+  image-rendering: pixelated;
+}
+
+.pixel-button:hover {
+  background-color: #ffeb9b;
+  transform: translate(-2px, -2px);
+  box-shadow: inset -4px -4px 0 0 #a88c3d, 6px 6px 0 0 #000;
+}
+
+.pixel-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: inset -4px -4px 0 0 #a88c3d, 0 0 0 0 #000;
+}
+
+/* Section-specific styling */
+.characters-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.marriage-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.locations-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card styling */
+.stardew-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  border: 2px solid #8b4513;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 10;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stardew-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Simple background */
+.simple-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, rgba(139, 195, 74, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(248, 216, 120, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 70%, rgba(70, 130, 180, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(205, 92, 92, 0.1) 0%, transparent 50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Floating pixel particles */
+.pixel-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--stardew-yellow);
+  z-index: 200;
+  pointer-events: none;
+  animation: float-particle 15s infinite linear;
+  image-rendering: pixelated;
+}
+
+.pixel-particle:nth-child(2n) {
+  background-color: var(--stardew-green);
+  animation-duration: 20s;
+}
+
+.pixel-particle:nth-child(3n) {
+  background-color: var(--stardew-blue);
+  animation-duration: 25s;
+}
+
+.pixel-particle:nth-child(4n) {
+  background-color: var(--stardew-purple);
+  animation-duration: 18s;
+}
+
+.pixel-particle:nth-child(5n) {
+  background-color: var(--stardew-orange);
+  animation-duration: 22s;
+}
+
+.pixel-particle:nth-child(6n) {
+  background-color: var(--stardew-teal);
+  animation-duration: 17s;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Pixel image styling */
+.pixel-image {
+  image-rendering: pixelated;
+  transition: transform 0.3s;
+}
+
+.pixel-image:hover {
+  transform: scale(1.05);
+}
+
+/* Game-like UI elements */
+.game-dialog {
+  border: 4px solid #8b4513;
+  background-color: #f8f0d8;
+  padding: 16px;
+  border-radius: 0;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.game-dialog::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #000;
+  pointer-events: none;
+}
+
+/* Stardew Valley style scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f0d8;
+  border: 2px solid #8b4513;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b4513;
+  border: 2px solid #f8f0d8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5c3e14;
+}
+
+/* Junimo animations */
+.junimo-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  z-index: 1000;
+}
+
+.junimo {
+  width: 100%;
+  height: 100%;
+  background-color: var(--stardew-green);
+  border-radius: 50%;
+  position: relative;
+  animation: junimo-bounce 2s infinite ease-in-out;
+  cursor: pointer;
+}
+
+.junimo::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 16px 0 0 #fff;
+}
+
+.junimo::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  width: 8px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+@keyframes junimo-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

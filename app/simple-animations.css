@@ -1,0 +1,124 @@
+/* Simple animations for section elements */
+.section-element {
+  position: absolute;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Character section elements */
+.character-element {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: simple-float 3s infinite ease-in-out;
+  z-index: 100;
+}
+
+.character-element-1 {
+  background-color: var(--stardew-purple);
+  top: 20px;
+  right: 20px;
+}
+
+.character-element-2 {
+  background-color: var(--stardew-brown);
+  bottom: 40px;
+  left: 30px;
+}
+
+/* Marriage section elements */
+.marriage-element {
+  width: 20px;
+  height: 20px;
+  animation: simple-pulse 2s infinite ease-in-out;
+  z-index: 100;
+}
+
+.marriage-element-1 {
+  background-color: var(--stardew-red);
+  top: 30px;
+  left: 40px;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(45deg);
+}
+
+.marriage-element-2 {
+  background-color: var(--stardew-blue);
+  bottom: 40px;
+  right: 30px;
+  border-radius: 50%;
+}
+
+/* Location section elements */
+.location-element {
+  width: 25px;
+  height: 25px;
+  animation: simple-pulse 4s infinite ease-in-out;
+  z-index: 100;
+}
+
+.location-element-1 {
+  background-color: var(--stardew-green);
+  top: 30px;
+  left: 40px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.location-element-2 {
+  background-color: var(--stardew-blue);
+  bottom: 40px;
+  right: 30px;
+  border-radius: 0 50% 50% 50%;
+}
+
+/* Calendar section elements */
+.calendar-element {
+  width: 30px;
+  height: 30px;
+  animation: simple-rotate 10s infinite linear;
+  z-index: 100;
+}
+
+.calendar-element-1 {
+  background-color: var(--stardew-yellow);
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+}
+
+.calendar-element-2 {
+  background-color: var(--stardew-green);
+  bottom: 30px;
+  left: 25px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Simple animations */
+@keyframes simple-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes simple-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes simple-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
